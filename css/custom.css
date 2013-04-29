@@ -1,0 +1,55 @@
+.head-content{
+	margin-left:5%;
+	height:120px;
+}
+
+.head-address{
+	position:absolute;
+	top:40px;
+	left:80%;
+}
+
+.nav-bar-custom{
+	margin-left: 28%;
+	margin-right:20%;
+}
+
+.nav-bar-font{
+	margin-top:20px;
+	font-size: 30px;
+}
+/* Override bootstrap */
+.navbar .nav > li > a {
+  @elementHeight: 20px;
+  padding: ((@navbarHeight - @elementHeight) / 2 - 1) 10px ((@navbarHeight - @elementHeight) / 2 + 1);
+  line-height: 19px;
+}
+
+.body-content{
+	border-radius: 15px;
+	background: rgba(255,0,0,0.5);
+	margin-left:20%;
+	margin-top:10px;
+	height: 800px;
+}
+
+a:link {
+	text-decoration: "none";
+}
+
+a:visited {
+	text-decoration: "none";
+}
+
+a:hover {
+	text-decoration: "none";
+}
+
+a:active {
+	text-decoration: "none";
+}
+
+@font-face {
+  font-family: 'Incinerator';
+  src: url('assets/fonts/INCINERA.TTF');
+}
