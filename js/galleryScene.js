@@ -20,6 +20,13 @@ function GalleryScene()
 
 	this.finalize = function()
 	{
+		while (body.hasChildNodes()) {
+    		body.removeChild(body.lastChild);
+		}
+
+		stageCanvas = {};
+
+		body.style.visibility = "hidden";
 
 	}
 
@@ -32,12 +39,21 @@ function GalleryScene()
     		body.removeChild(body.lastChild);
 		}
 
+		body.style.visibility = "visible";
+		body.style.width = window.innerHeight * 0.8 + "px";
+		body.style.top = window.innerHeight * 0.075 + "px";
+		body.style.width = window.innerWidth * 0.8 + "px";
+		body.style.left = window.innerWidth * 0.1 + "px";
+
 		//create stage for calendar
 		stageCanvas = document.createElement("canvas");
 		stageCanvas.id = "galleryCanvas";
 		stageCanvas.width = gallery.width;
 		stageCanvas.height = gallery.height;
 		stageCanvas.style.paddingLeft = (800-gallery.width)/2;
+		stageCanvas.style.position = "absolute";
+		stageCanvas.style.top = gallery.height/2 - parseInt(body.style.height,10)/2 + "px";// - gallery.height/2 + "px";
+		stageCanvas.style.left = parseInt(body.style.width,10)/2 - gallery.width/2 + "px";;
 		//stageCanvas.style.position = "absolute";
 		body.appendChild(stageCanvas);
 
@@ -72,19 +88,19 @@ function GalleryScene()
 		arrowLeft.bitmap = new createjs.Bitmap(gallery.arrows + ".png");
 		arrowLeft.bkg = new createjs.Shape();
 		arrowLeft.bkg.graphics.beginFill("rgba(0,0,0,0.5)").drawRect(0,0,80,600);
-		arrowLeft.bitmap.x = 0;
-		arrowLeft.bitmap.y = 250;
-		arrowLeft.bitmap.scaleX = 0.2;
+		arrowLeft.bitmap.x = 10;
+		arrowLeft.bitmap.y = 200;
+		arrowLeft.bitmap.scaleX = 0.1;
 		arrowLeft.bitmap.scaleY = arrowLeft.bitmap.scaleX;
 
 		var arrowRight = new Object();//createjs.Bitmap(gallery.arrows);
 		arrowRight.bitmap = new createjs.Bitmap(gallery.arrows + ".png");
 		arrowRight.bkg = new createjs.Shape();
 		arrowRight.bkg.graphics.beginFill("rgba(0,0,0,0.5)").drawRect(620,0,80,600);
-		arrowRight.bitmap.x = 100;
-		arrowRight.bitmap.y = 305;
+		arrowRight.bitmap.x = 690;
+		arrowRight.bitmap.y = 235;
 		arrowRight.bitmap.rotation = 180;
-		arrowRight.bitmap.scaleX = 0.2;
+		arrowRight.bitmap.scaleX = 0.1;
 		arrowRight.bitmap.scaleY = arrowRight.bitmap.scaleX;
 
 		arrows.push(arrowLeft);

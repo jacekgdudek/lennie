@@ -11,6 +11,7 @@ function PhotoPresentation(stage_)
 	this.init = function()
 	{
 		constructPresentation(structure.presentation);
+		console.log(window.innerHeight);
 	}
 
 	this.update = function()

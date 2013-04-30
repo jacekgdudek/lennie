@@ -4,7 +4,10 @@ function HomeScene()
 
 	this.init = function()
 	{
-		document.getElementById("title-card").style.visibility = "visible";
+		var card = document.getElementById("title-card");
+		card.style.visibility = "visible";
+		card.style.top = window.innerHeight/2 - parseInt(card.style.height, 10)/2 - 50 + "px";
+		card.style.left = window.innerWidth/2 - parseInt(card.style.width, 10)/2 + "px";
 
 		//newsList = structure.news;
 

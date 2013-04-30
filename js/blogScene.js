@@ -33,23 +33,25 @@ function BlogScene()
 		}
 
 		body.style.visibility = "visible";
+		body.style.width = window.innerWidth * 0.8 + "px";
+		body.style.left = window.innerWidth * 0.1 + "px";
 
 		//cover for background
 		var bg_cover = document.createElement("div");
 		bg_cover.style.position = "fixed";
 		bg_cover.style.top = "0px";
 		bg_cover.style.left = "0px";
-		bg_cover.style.height = "600px";
+		bg_cover.style.height = window.innerHeight - 50 + "px";
 		bg_cover.style.width = "100%";
 		bg_cover.style.backgroundColor = "rgba(150,150,150,0.2)";
 
 		//draw months square
 		var monthsContainer = document.createElement("div");
 		monthsContainer.style.position = "absolute";
-		monthsContainer.style.top = "40px";
-		monthsContainer.style.left = "20px";
-		monthsContainer.style.height = "100px";
-		monthsContainer.style.width = "150px";
+		monthsContainer.style.top = window.innerHeight * 0.05 + "px";
+		monthsContainer.style.left = window.innerWidth * 0.02 + "px";
+		monthsContainer.style.height = window.innerHeight * 0.2 + "px";
+		monthsContainer.style.width = window.innerWidth * 0.1 + "px";
 		monthsContainer.style.backgroundColor = "#999999";
 
 		for(var i  = 0; i < blog.months.length ; i ++ )
@@ -63,10 +65,10 @@ function BlogScene()
 		//draw blog area
 		var blogContainer = document.createElement("div");
 		blogContainer.style.position = "absolute";
-		blogContainer.style.top = "40px";
-		blogContainer.style.left = "220px";
-		blogContainer.style.height = "300px";
-		blogContainer.style.width = "400px";
+		blogContainer.style.top = window.innerHeight * 0.05 + "px";
+		blogContainer.style.left = window.innerWidth * 0.15 + "px";
+		blogContainer.style.height = window.innerHeight * 0.7 + "px";
+		blogContainer.style.width = window.innerWidth * 0.625 + "px";
 		blogContainer.style.backgroundColor = "#999999";
 
 		for(var i  = 0; i < blog.posts.length ; i ++ )

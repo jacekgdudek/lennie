@@ -19,15 +19,15 @@ function onLoad(){
 	presentation = new PhotoPresentation(presentationStage);
 	presentation.init()
 
-	introAnimation = new IntroAnimation();
-	introAnimation.init();
+	//introAnimation = new IntroAnimation();
+	//introAnimation.init();
 
 	initScenes();
 	swapScene("home");
 
 	mainTimer = setInterval(function () {
 
-		introAnimation.update();
+		//introAnimation.update();
 		navBar.update();
 		presentation.update();
 

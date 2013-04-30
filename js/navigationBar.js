@@ -6,6 +6,7 @@ function NavigationBar()
 	{
 		navBar = document.getElementById("nav-bar-div");
 		navBar.style.width = window.innerWidth + "px";
+		navBar.style.top = (window.innerHeight-50) + "px";
 		navBar.style.backgroundColor = "#888888";
 		//navBar.style.backgroundImage = "url(assets/landing/texture.png)";
 		navBar.style.textDecoration = "none";
