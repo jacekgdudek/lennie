@@ -6,7 +6,7 @@ function PhotoPresentation(stage_)
 
 	var currentPhoto = 0;
 	var presentationDelay = 0;
-	var presentationThreshold = 120;
+	var presentationThreshold = 240;
 
 	this.init = function()
 	{

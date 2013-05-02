@@ -82,7 +82,7 @@ function GalleryScene()
 		stageCanvas.height = gallery.height;
 		stageCanvas.style.paddingLeft = (800-gallery.width)/2;
 		stageCanvas.style.position = "absolute";
-		stageCanvas.style.top = "20%";//gallery.height/2 - parseInt(body.style.height,10)/2 + "px";// - gallery.height/2 + "px";
+		stageCanvas.style.top = "15%";//gallery.height/2 - parseInt(body.style.height,10)/2 + "px";// - gallery.height/2 + "px";
 		stageCanvas.style.left = parseInt(body.style.width,10)/2 - gallery.width/2 + "px";;
 		//stageCanvas.style.position = "absolute";
 		body.appendChild(stageCanvas);

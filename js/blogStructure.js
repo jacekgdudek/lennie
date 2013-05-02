@@ -1,18 +1,22 @@
 var blogStructure = {
 	months:[
 	{
-		text:"April 2013"
+		text:"April 2013</br>"
 	},
 	{
-		text:"May 2013"
+		text:"May 2013</br>"
 	}
 	],
 	posts:[
 	{
-		text:"First post blablahbablbahldfad sef sdf asdf dsf sad fds"
+		title:"First steps..",
+		text:"First post blablahbablbahldfad sef sdf asdf dsf sad fds",
+		date:"2/05/2013"
 	},
 	{
-		text:"hmm should i write the secon post? blaha deflsdhflsdhflsd fsdlfjsld "
+		title: "Something new..",
+		text:"hmm should i write the second post? blaha deflsdhflsdhflsd fsdlfjsld ",
+		date:"1/05/2013"
 	}
 	]
 }
