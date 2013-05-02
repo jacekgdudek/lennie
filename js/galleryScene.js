@@ -2,12 +2,14 @@ function GalleryScene()
 {
 	var stageCanvas;
 	var stage;
-	var gallery = new Object();
+	var gallery_ = new Object();
 	var currentImage;
+	var nextImage;
 
 	this.init = function()
 	{
-		currentImage = 0;
+		currentImage = -1;
+		nextImage = 0;
 		//newsList = structure.news;
 		constructCanvas(structure.gallery);
 		constructGallery(structure.gallery);
@@ -15,6 +17,22 @@ function GalleryScene()
 
 	this.update = function()
 	{
+
+		if(nextImage != currentImage)
+		{
+			stage.removeChild(gallery_.arrows[0].bkg , gallery_.arrows[0].bitmap , gallery_.arrows[1].bkg , gallery_.arrows[1].bitmap);
+
+			if(currentImage != -1) stage.removeChild(gallery_.images[currentImage]);
+			stage.addChild(gallery_.images[nextImage]);
+			currentImage = nextImage;
+
+			stage.addChild(gallery_.arrows[0].bkg , gallery_.arrows[0].bitmap , gallery_.arrows[1].bkg , gallery_.arrows[1].bitmap);
+		}
+
+		//===================necessary repositioning
+		// stageCanvas.style.top = structure.gallery.height/2 - parseInt(body.style.height,10)/2 + "px";// - gallery.height/2 + "px";
+		// stageCanvas.style.left = parseInt(body.style.width,10)/2 - structure.gallery.width/2 + "px";;
+		//==================================
 		stage.update();
 	}
 
@@ -28,6 +46,18 @@ function GalleryScene()
 
 		body.style.visibility = "hidden";
 
+	}
+
+	function nextImage()
+	{
+		nextImage++;
+		if(nextImage >= gallery_.images.length) nextImage = 0;
+	}
+
+	function previousImage()
+	{
+		nextImage--;
+		if(nextImage < 0) nextImage = gallery_.images.length - 1;
 	}
 
 	//=======================PRIV
@@ -52,7 +82,7 @@ function GalleryScene()
 		stageCanvas.height = gallery.height;
 		stageCanvas.style.paddingLeft = (800-gallery.width)/2;
 		stageCanvas.style.position = "absolute";
-		stageCanvas.style.top = gallery.height/2 - parseInt(body.style.height,10)/2 + "px";// - gallery.height/2 + "px";
+		stageCanvas.style.top = "20%";//gallery.height/2 - parseInt(body.style.height,10)/2 + "px";// - gallery.height/2 + "px";
 		stageCanvas.style.left = parseInt(body.style.width,10)/2 - gallery.width/2 + "px";;
 		//stageCanvas.style.position = "absolute";
 		body.appendChild(stageCanvas);
@@ -61,10 +91,15 @@ function GalleryScene()
 
 		stage.onMouseMove = function(mousePos) {
 			//hintsOnMove(mousePos);
+			
+
 		}
 
 		stage.onMouseDown = function(mousePos) {
 			//hintsOnDown(mousePos);
+			if(collider.collidePointEasel(gallery_.arrows[0].bitmap, mousePos)) previousImage();
+
+			if(collider.collidePointEasel(gallery_.arrows[1].bitmap, mousePos)) nextImage();
 		}
 
 	}
@@ -79,7 +114,7 @@ function GalleryScene()
 			var newImage = new createjs.Bitmap(gallery.photos + i + ".JPG");
 			images.push(newImage);
 		}
-		gallery.images = images;
+		gallery_.images = images;
 
 		//prepare arrows
 		var arrows = new Array();
@@ -106,7 +141,7 @@ function GalleryScene()
 		arrows.push(arrowLeft);
 		arrows.push(arrowRight);
 
-		gallery.arrows = arrows;
+		gallery_.arrows = arrows;
 		stage.addChild(arrowLeft.bkg , arrowLeft.bitmap , arrowRight.bkg , arrowRight.bitmap);
 	}
 }

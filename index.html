@@ -32,7 +32,7 @@
 
     <script src="js/navigationBar.js"></script>
     <script src="js/presentation.js"></script>
-
+    <script src="js/collision.js"></script>
     <!-- -->
 
     <!-- SCENES -->
@@ -60,96 +60,93 @@
     <![endif]-->
 
   </head>
-  <body onload="onLoad()" onBeforeUnload="onUnload()">
+  <body onload="onLoad()" onBeforeUnload="onUnload()" style="min-height: 700px">
+
+      <!-- background -->
 
 
-    <!-- background -->
-
-
-    <!-- <div id="main-background" style="position: absolute; top: -20px; margin-left: 5%;margin-right: 5%;opacity:1;">
-      <img src="assets/bg.jpg"/>
-    </div> -->
-
-    <!-- -->
-
-    <!-- title -->
-
-    <canvas id="presentation-canvas" width="3000px" height="580px" style="
-    position: absolute;
-    top: 0px;
-    left: 0px;
-"></canvas>
-<script>
-document.getElementById("presentation-canvas").width = window.innerWidth;
-document.getElementById("presentation-canvas").height = window.innerHeight;
-</script>
-
-     <div id="nav-bar-div" style="height: 50px; position: absolute; width: 500px; visibility:hidden">
-      <div id="nav-bar-highlight" style="position: absolute; height: 30px; top:10px; background-color: #FFFFFF; opacity: 0.3;">
-      </div>
-        <div style="height: 50px;">
-          <p onclick="javascript: swapScene('home');" onmouseover="javascript: mouseOver(this);" onmouseout="javascript: mouseOut(this);">Home</p>
-        </div>
-        <div>
-          <p onclick="javascript: swapScene('blog');" onmouseover="javascript: mouseOver(this);" onmouseout="javascript: mouseOut(this);">Blog </p>
-        </div>
-        <div><p onclick="javascript: swapScene('gallery');" onmouseover="javascript: mouseOver(this);" onmouseout="javascript: mouseOut(this);">Galery</p>
-        </div>
-        <div><p onclick="javascript: swapScene('calendar');" onmouseover="javascript: mouseOver(this);" onmouseout="javascript: mouseOut(this);">Contact</p>
-        </div>
-
-     </div>
-     <script>
-      document.getElementById("nav-bar-div").style.width = window.innerWidth;
-      document.getElementById("nav-bar-div").style.top = window.innerHeight-30;
-    </script>
-
-    <div>
-      <img src="assets/header.jpg" style="width:40%;"/>
-       <script>
-      // function loadHeaderImage()
-      // {
-      //     var canvas = document.getElementById('header-image-canvas');
-      //     var context = canvas.getContext('2d');
-      //     var x = 0;
-      //     var y = 0;
-      //     var width = 700;
-      //     var height = 540;
-      //     var imageObj2 = new Image();//document.getElementById("header-image");
-      //     imageObj2.onload = function() {
-      //       context.drawImage(imageObj2, x, y, width, height);
-      //     }
-      //     imageObj2.src = "assets/header.jpg";
-      // }
-      // loadHeaderImage();
-      // </script>
-    </div>
-
-    <div class="head-content" style="position: absolute; margin-left: 20%;">
-     <!-- <img src="assets/title.png"/>-->
-    </div>
-    <!-- -->
-
-
-   <div id="title-card" style="position: absolute; top: 200px; left: 475px;width: 498px;height: 214px;">
-      <img src="assets/landing/header1.jpeg" style="width: 498px;height: 214px;">
-      <img src="assets/landing/headerText.png" style="position: absolute;top: 72px;left: 123px;">
-      <!-- <p style="position: absolute; top: 82px; left: 66px;line-height: 0.8;font-size: 48px; font-family: 'Incinerator' ;"> Andrew B Lennie </p> -->
-    </div>
-    
-
- 
-
-
-      <div id="body-content" style="position: absolute; top: 7.5%; height:80%; visibility: hidden; border-radius: 15px; background: rgba(255,0,0,0.5);">
-
-      </div>
-
-      <!-- bee hive -->
-      <!-- <div style="position: absolute;top: -4px;left: 60px;width: 179px;">
-        <img src="assets/bee-hive.png">
+      <!-- <div id="main-background" style="position: absolute; top: -20px; margin-left: 5%;margin-right: 5%;opacity:1;">
+        <img src="assets/bg.jpg"/>
       </div> -->
+
       <!-- -->
 
+      <!-- title -->
+
+      <canvas id="presentation-canvas" width="3000px" height="580px" style="
+      position: absolute;
+      top: 0px;
+      left: 0px;
+  "></canvas>
+  <script>
+  document.getElementById("presentation-canvas").width = window.innerWidth;
+  document.getElementById("presentation-canvas").height = window.innerHeight;
+  </script>
+
+       <div id="nav-bar-div" style="height: 50px; position: absolute; width: 500px; visibility:hidden">
+        <div id="nav-bar-highlight" style="position: absolute; height: 30px; top:10px; background-color: #FFFFFF; opacity: 0.3;">
+        </div>
+          <div style="height: 50px;">
+            <p onclick="javascript: swapScene('home');" onmouseover="javascript: mouseOver(this);" onmouseout="javascript: mouseOut(this);">Home</p>
+          </div>
+          <div>
+            <p onclick="javascript: swapScene('blog');" onmouseover="javascript: mouseOver(this);" onmouseout="javascript: mouseOut(this);">Blog </p>
+          </div>
+          <div><p onclick="javascript: swapScene('gallery');" onmouseover="javascript: mouseOver(this);" onmouseout="javascript: mouseOut(this);">Galery</p>
+          </div>
+          <div><p onclick="javascript: swapScene('calendar');" onmouseover="javascript: mouseOver(this);" onmouseout="javascript: mouseOut(this);">Contact</p>
+          </div>
+
+       </div>
+       <script>
+        document.getElementById("nav-bar-div").style.width = window.innerWidth;
+        document.getElementById("nav-bar-div").style.top = window.innerHeight-30;
+      </script>
+
+      <div>
+        <img src="assets/header.jpg" style="width:40%;"/>
+         <script>
+        // function loadHeaderImage()
+        // {
+        //     var canvas = document.getElementById('header-image-canvas');
+        //     var context = canvas.getContext('2d');
+        //     var x = 0;
+        //     var y = 0;
+        //     var width = 700;
+        //     var height = 540;
+        //     var imageObj2 = new Image();//document.getElementById("header-image");
+        //     imageObj2.onload = function() {
+        //       context.drawImage(imageObj2, x, y, width, height);
+        //     }
+        //     imageObj2.src = "assets/header.jpg";
+        // }
+        // loadHeaderImage();
+        // </script>
+      </div>
+
+      <div class="head-content" style="position: absolute; margin-left: 20%;">
+       <!-- <img src="assets/title.png"/>-->
+      </div>
+      <!-- -->
+
+
+     <div id="title-card" style="position: absolute; top: 200px; left: 475px;width: 498px;height: 214px;">
+        <img src="assets/landing/header1.jpeg" style="width: 498px;height: 214px;">
+        <img src="assets/landing/headerText.png" style="position: absolute;top: 72px;left: 123px;">
+        <!-- <p style="position: absolute; top: 82px; left: 66px;line-height: 0.8;font-size: 48px; font-family: 'Incinerator' ;"> Andrew B Lennie </p> -->
+      </div>
+      
+
+
+
+        <div id="body-content" style="position: absolute; top: 7.5%; height:80%; visibility: hidden; border-radius: 15px; background: rgba(0,0,0,0.5); min-height: 500px">
+
+        </div>
+
+        <!-- bee hive -->
+        <!-- <div style="position: absolute;top: -4px;left: 60px;width: 179px;">
+          <img src="assets/bee-hive.png">
+        </div> -->
+        <!-- -->
   </body>
 </html>
