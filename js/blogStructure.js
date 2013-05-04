@@ -1,8 +1,8 @@
 var blogStructure = {
 	months:[
-	{
-		text:"April 2013</br>"
-	},
+	// {
+	// 	text:"April 2013</br>"
+	// },
 	{
 		text:"May 2013</br>"
 	}

@@ -15,9 +15,9 @@ function onLoad(){
 	navBar = new NavigationBar();
 	navBar.init();
 
-	var presentationStage = new createjs.Stage("presentation-canvas");
-	presentation = new PhotoPresentation(presentationStage);
-	presentation.init()
+	//var presentationStage = new createjs.Stage("presentation-canvas");
+	//presentation = new PhotoPresentation(presentationStage);
+	//presentation.init()
 
 	//introAnimation = new IntroAnimation();
 	//introAnimation.init();
@@ -29,7 +29,7 @@ function onLoad(){
 
 		//introAnimation.update();
 		navBar.update();
-		presentation.update();
+		//presentation.update();
 
 		scenes[currentScene].update();
 
@@ -67,5 +67,25 @@ function swapScene(scene)
 			scenes[currentScene].init();
 		}
 	}
+
+	var id = 0;
+	for(var key in scenes)
+	{
+		if(currentScene == key)
+		{
+			break;
+		}
+		id++;
+	}
+
+	document.getElementById("nav-bar-highlight-current").style.left = parseInt(document.getElementById("nav-bar-div").children[1+id].style.left, 10) -5 + "px";
+	document.getElementById("nav-bar-highlight-current").style.width = document.getElementById("nav-bar-div").children[1+id].offsetWidth + 10 + "px";
+
 	
 }
+
+
+
+
+
+

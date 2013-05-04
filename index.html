@@ -15,10 +15,6 @@
     <link href="bootstrap/css/main.css" rel="stylesheet">
     <link rel="shortcut-icon" href="assets/favicon.ico">
     <style type="text/css">
-      body {
-        padding-top: 20px;
-        padding-bottom: 40px;
-      }
     </style>  
     <link href="css/custom.css" rel="stylesheet">
 
@@ -60,7 +56,9 @@
     <![endif]-->
 
   </head>
-  <body onload="onLoad()" onBeforeUnload="onUnload()" style="min-height: 700px">
+  <body onload="onLoad()" onBeforeUnload="onUnload()" style="min-height: 700px;min-width: 700px; background-image: url(assets/gallery/image3.jpg); background-repeat:no-repeat; background-size:100%;
+background-attachment:fixed;
+background-position:center;">
 
       <!-- background -->
 
@@ -73,18 +71,19 @@
 
       <!-- title -->
 
-      <canvas id="presentation-canvas" width="3000px" height="580px" style="
+      <canvas id="presentation-canvas" width="100%" height="580px" style="
       position: absolute;
       top: 0px;
       left: 0px;
   "></canvas>
   <script>
-  document.getElementById("presentation-canvas").width = window.innerWidth;
-  document.getElementById("presentation-canvas").height = window.innerHeight;
+  //document.getElementById("presentation-canvas").width = window.innerWidth;
+  //document.getElementById("presentation-canvas").height = window.innerHeight;
   </script>
 
-       <div id="nav-bar-div" style="height: 50px; position: absolute; width: 500px; visibility:hidden">
-        <div id="nav-bar-highlight" style="position: absolute; height: 30px; top:10px; background-color: #FFFFFF; opacity: 0.3;">
+
+       <div id="nav-bar-div" style="height: 50px; position: absolute; width: 100%; visibility:hidden; color: #6d5423">
+        <div id="nav-bar-highlight" style="position: absolute; height: 30px; top:10px; background-color: #8aaeb1;">
         </div>
           <div style="height: 50px;">
             <p onclick="javascript: swapScene('home');" onmouseover="javascript: mouseOver(this);" onmouseout="javascript: mouseOut(this);">Home</p>
@@ -98,13 +97,20 @@
           </div>
 
        </div>
+       <div id="nav-bar-highlight-current" style="position: absolute; height: 30px; bottom:10px; left: 425px;opacity: 200%;pointer-events:none;">
+        <img src="assets/nav-bar-frame.png" style="
+    height: 33px;
+    width: 80px;
+    pointer-events:none;
+">
+      </div>
+       
        <script>
         document.getElementById("nav-bar-div").style.width = window.innerWidth;
         document.getElementById("nav-bar-div").style.top = window.innerHeight-30;
       </script>
 
       <div>
-        <img src="assets/header.jpg" style="width:40%;"/>
          <script>
         // function loadHeaderImage()
         // {
@@ -130,9 +136,12 @@
       <!-- -->
 
 
-     <div id="title-card" style="position: absolute; top: 200px; left: 475px;width: 498px;height: 214px;">
-        <img src="assets/landing/header1.jpeg" style="width: 498px;height: 214px;">
-        <img src="assets/landing/headerText.png" style="position: absolute;top: 72px;left: 123px;">
+        <!-- <img src="assets/navbar.png" style="position: absolute; top:600px;width: 100%;"> -->
+     <div id="title-card" style="width: 100%;">
+        <img id="title-card-text" src="assets/landing/headerText2.png" style="position: absolute;top: 62px;left: 156px;
+        width: 313px;-webkit-transform: perspective(523)                    translate3d(0px, 5px, 149px)                    scale3d(1, 1, 1)                    rotate3d(-1, 32, 11, -41deg);
+-webkit-transform-origin: -35% 53% -5%;
+-webkit-transform-style: preserve-3d;">
         <!-- <p style="position: absolute; top: 82px; left: 66px;line-height: 0.8;font-size: 48px; font-family: 'Incinerator' ;"> Andrew B Lennie </p> -->
       </div>
       

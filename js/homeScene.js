@@ -2,12 +2,21 @@ function HomeScene()
 {
 	var newsList = new Array();
 
+	var text;
+
+	var frameCounter = 0;
+
 	this.init = function()
 	{
 		var card = document.getElementById("title-card");
 		card.style.visibility = "visible";
 		card.style.top = window.innerHeight/2 - parseInt(card.style.height, 10)/2 - 50 + "px";
 		card.style.left = window.innerWidth/2 - parseInt(card.style.width, 10)/2 + "px";
+
+		text = document.getElementById("title-card-text");
+
+
+		frameCounter = 0;
 
 		//newsList = structure.news;
 
@@ -16,7 +25,11 @@ function HomeScene()
 
 	this.update = function()
 	{
+		var rotationValue = Math.sin(frameCounter/100)*5 - 45;
+		console.log(rotationValue);
+		frameCounter++;
 
+		text.style['-webkit-transform'] = "perspective(523) translate3d(0px, 5px, 149px) scale3d(1, 1, 1) rotate3d(-1, 32, 11, " + rotationValue + "deg)";
 	}
 
 	this.finalize = function()

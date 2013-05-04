@@ -5,13 +5,13 @@ function NavigationBar()
 	this.init = function()
 	{
 		navBar = document.getElementById("nav-bar-div");
-		navBar.style.width = window.innerWidth + "px";
+		navBar.style.width = "100%";
 		navBar.style.bottom = 0 + "px";
-		navBar.style.backgroundColor = "#888888";
+		navBar.style.backgroundColor = "#537174";
 		//navBar.style.backgroundImage = "url(assets/landing/texture.png)";
 		navBar.style.textDecoration = "none";
 		navBar.style.fontSize = "24px";
-		navBar.style.color = "gray";
+		navBar.style.color = "#476265";
 
 		constructNavBar();
 
@@ -92,7 +92,7 @@ function NavigationBar()
 			navBar.children[i+1].style.left = startingPosition + i*titleWidth + "px";
 			navBar.children[i+1].style.top = "15px";
 			navBar.children[i+1].style.textDecoration = "none";
-			navBar.children[i+1].style.color = "black";
+			navBar.children[i+1].style.color = "#1a4144";
 			navBar.children[i+1].style.width = "auto";
 			navBar.children[i+1].style.height = "auto";
 		}
